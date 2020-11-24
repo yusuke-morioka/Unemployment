@@ -2,8 +2,6 @@
 
 class KaisyaTugou
 {
-    private DateTime dt1, dt2, dt3, dt4, dt5, dt6,dt7,dt8,dt9,dt10;
-
     public static void Main()
     {
         //受給資格決定日を表示
@@ -22,24 +20,26 @@ class KaisyaTugou
         Console.WriteLine("\n待機期間満了日\n　" + dt4 + "\n");
 
         //支給対象期間を表示。会社都合と自己都合がある。
-        Console.WriteLine("支給対象期間");
+        Console.WriteLine("\n" + "支給対象期間");
         //会社都合の場合
         Console.WriteLine("・会社都合退職の場合は\n　" + dt4 + "　から支給対象期間に入る");
         //自己都合の場合
-        Console.WriteLine("・自己都合退職の場合は\n　" + dt4 + "　から　" + dt5 + "　まで　給付制限が課せられ、\n　" + dt6 + "　から　支給対象期間に入る。\n");
+        Console.WriteLine("・自己都合退職の場合は\n　" + dt4 + "　から　" + dt5 + "　まで3ヶ月間の給付制限が課せられ、\n　" + dt6 + "　から　支給対象期間に入る。\n");
 
         //失業保険認定日
-        Console.WriteLine("失業保険認定日");
+        Console.WriteLine("\n" + "失業保険認定日");
         DateTime dt7 = new DateTime(2020, 12, 8, 0, 0, 0);//ハローワークから呼ばれた日にちを記入
         DateTime dt8 = (dt7.AddDays(7));
+        DateTime dt9 = (dt5.AddDays(7));
+        //会社都合
         Console.WriteLine("・会社都合退職の場合");
-        Console.WriteLine("　" + dt7 + "　に行われるハローワークの講習会を受け、\n　認定されれば、その日から遅くとも1週間以内に振り込まれる。");
-        Console.WriteLine("　つまり　" + dt7 + "　から　" + dt8 + "　の頃には振り込まれる\n");
-
-
+        Console.WriteLine("　" + dt7 + "　に行われるハローワークの講習会を受け、\n　認定されれば、その日から遅くとも1週間以内の\n　" + dt7 + "　から　" + dt8 + "　の頃には振り込まれる");
+        //自己都合
         Console.WriteLine("・自己都合退職の場合");
-        Console.WriteLine("　" + dt4 + "　から　" + dt5 + "　まで給付制限期間に突入する。\n" );
-        Console.WriteLine();
+        Console.WriteLine("　" + dt4 + "　から　" + dt5 + "　まで給付制限期間を経て、" );
+        Console.WriteLine("　" + dt5 + "　以降の認定日からおよそ1週間以内の\n　" + dt9 + "　頃に振り込まれる\n");
+
+        Console.ReadKey();
 
     }
 }
